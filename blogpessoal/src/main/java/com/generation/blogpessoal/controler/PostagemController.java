@@ -45,7 +45,7 @@ public class PostagemController {
             return ResponseEntity.status(HttpStatus.CREATED)
                 .body(postagemRepository.save(postagem));
 
-        return ResponseEntity.status((HttpStatus.BAD_REQUEST).build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
     @GetMapping("titulo/{titulo}")
@@ -59,11 +59,10 @@ public class PostagemController {
 
             if (temaRepository.existsById(postagem.getTema().getId()))
                 return ResponseEntity.status(HttpStatus.OK)
-                        .body(postagemRepository.save(postagem))
+                        .body(postagemRepository.save(postagem));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
-                return  ResponseEntity.status((HttpStatus.BAD_REQUEST).buid();
-
-            return ResponseEntity.status(HttpStatus.NOT_FOUND.build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
     }
 
